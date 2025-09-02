@@ -1,0 +1,32 @@
+<section class="card">
+    <header class="card-title">
+        <h1>
+            <b>{{ include.title }}</b> {{ include.subtitle }}
+        </h1>
+    </header>
+    
+    <div class="card-content" >
+        <div class="card-image">
+            {% if include.app-img and include.app-img != "" %}
+            <img src="assets/img/{{ include.app-img }}" alt="App icon for {{ include.title }}">
+            {% endif %}
+        </div>
+        <div class="card-text">
+            <!-- Markdown Content -->
+            {% if include.markdown-content %}
+            {% capture my_include %}{% include portfolio/{{ include.markdown-content }} %}{% endcapture %}
+            {{ my_include | markdownify }}
+            <!-- HTML Content -->
+            {% elsif include.html-content %}
+            {{ include.html-content }}
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="card-store-link">
+        {% if include.store-url and include.store-text and include.store-url != "" and include.store-text != "" %}
+        <a href="{{ include.store-url}}">{{ include.store-text }}</a>
+        {% endif %}
+    </div>
+
+</section>
