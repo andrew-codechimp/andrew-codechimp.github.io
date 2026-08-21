@@ -9,4 +9,5 @@ order: 6
 ---
 
 Create fake devices allowing you to attach helpers entities.
+
 Useful for adding battery notes to real world devices such as remotes.
