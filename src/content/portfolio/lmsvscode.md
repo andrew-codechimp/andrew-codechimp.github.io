@@ -4,7 +4,7 @@ description: ''
 subtitle: 'for Visual Studio Code'
 appImg: 'lmsvscode.png'
 storeUrl: 'https://marketplace.visualstudio.com/items?itemName=codechimp.lmsslim-snippets'
-storeText: 'View on Visual Studio Marketplace'
+storeText: 'View on Marketplace'
 category: 'other'
 order: 2
 ---
