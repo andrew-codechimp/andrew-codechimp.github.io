@@ -1,0 +1,172 @@
+---
+import { Image, type ImageMetadata } from 'astro:assets';
+import { type CollectionEntry } from 'astro:content';
+import haBatteryNotes from '../assets/portfolio/ha-battery-notes.png';
+import haBoardoil from '../assets/portfolio/ha-boardoil.png';
+import haCalendarEvent from '../assets/portfolio/ha-calendar-event.png';
+import haFakeDevices from '../assets/portfolio/ha-fake-devices.png';
+import haHiveLocalThermostat from '../assets/portfolio/ha-hive-local-thermostat.png';
+import haLabelState from '../assets/portfolio/ha-label-state.png';
+import haPeriodicMinMax from '../assets/portfolio/ha-periodic-min-max.png';
+import haPlantMonitorPlus from '../assets/portfolio/ha-plant-monitor-plus.png';
+import haWaspInABox from '../assets/portfolio/ha-wasp-in-a-box.png';
+import haMenu from '../assets/portfolio/hamenu.png';
+import lmsTvh from '../assets/portfolio/lmstvh.png';
+import lmsSlimSnippets from '../assets/portfolio/lmsvscode.png';
+import tSmart from '../assets/portfolio/t-smart.png';
+
+interface Props {
+  item: CollectionEntry<'portfolio'>;
+}
+
+const { item } = Astro.props;
+const { title, description, appImg, storeUrl, storeText, subtitle } = item.data;
+
+// Map filename to imported image
+const imageMap: Record<string, ImageMetadata> = {
+  'ha-battery-notes.png': haBatteryNotes,
+  'ha-boardoil.png': haBoardoil,
+  'ha-calendar-event.png': haCalendarEvent,
+  'ha-fake-devices.png': haFakeDevices,
+  'ha-hive-local-thermostat.png': haHiveLocalThermostat,
+  'ha-label-state.png': haLabelState,
+  'ha-periodic-min-max.png': haPeriodicMinMax,
+  'ha-plant-monitor-plus.png': haPlantMonitorPlus,
+  'ha-wasp-in-a-box.png': haWaspInABox,
+  'hamenu.png': haMenu,
+  'lmstvh.png': lmsTvh,
+  'lmsvscode.png': lmsSlimSnippets,
+  't-smart.png': tSmart,
+};
+
+const appImgSrc = appImg ? imageMap[appImg] : null;
+---
+
+<section class="card">
+  <header class="card-title">
+    <h2>
+      <b>{title}</b>
+      {subtitle && <span class="subtitle"> {subtitle}</span>}
+    </h2>
+  </header>
+
+  <div class="card-content">
+    <div class="card-image">
+      {
+        appImgSrc && (
+          <Image
+            src={appImgSrc}
+            alt={`App icon for ${title}`}
+            width={120}
+            height={120}
+          />
+        )
+      }
+    </div>
+    <div class="card-text">
+      <slot />
+    </div>
+  </div>
+
+  {
+    storeUrl && storeText && (
+      <div class="card-store-link">
+        <a href={storeUrl}>{storeText}</a>
+      </div>
+    )
+  }
+</section>
+
+<style>
+  .card {
+    background: var(--surface, #ffffff);
+    border: 1px solid var(--border, #e0e0e0);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-title {
+    margin-bottom: 1rem;
+  }
+
+  .card-title h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .subtitle {
+    font-weight: 400;
+    font-size: 0.9em;
+    color: var(--text-secondary, #666);
+  }
+
+  .card-content {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-image {
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .card-text {
+    flex: 1;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text, #333);
+  }
+
+  .card-store-link {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border, #e0e0e0);
+  }
+
+  .card-store-link a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--primary, #0066cc);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+  }
+
+  .card-store-link a:hover {
+    background: var(--primary-dark, #0052a3);
+  }
+
+  @media (max-width: 640px) {
+    .card-content {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .card-image {
+      width: 100%;
+      height: 150px;
+    }
+  }
+</style>

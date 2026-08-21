@@ -1,0 +1,27 @@
+---
+interface Props {
+	date: Date;
+}
+
+const { date } = Astro.props;
+
+// Format date as UK style with ordinal suffix (e.g., "19th July 2026")
+function getOrdinalSuffix(day: number): string {
+	if (day > 3 && day < 21) return 'th';
+	switch (day % 10) {
+		case 1: return 'st';
+		case 2: return 'nd';
+		case 3: return 'rd';
+		default: return 'th';
+	}
+}
+
+const day = date.getDate();
+const month = date.toLocaleDateString('en-GB', { month: 'long' });
+const year = date.getFullYear();
+const formattedDate = `${day}${getOrdinalSuffix(day)} ${month} ${year}`;
+---
+
+<time datetime={date.toISOString()}>
+	{formattedDate}
+</time>
