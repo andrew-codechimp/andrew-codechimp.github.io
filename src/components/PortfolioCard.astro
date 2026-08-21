@@ -1,5 +1,6 @@
 ---
-import { Image, type ImageMetadata } from 'astro:assets';
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import { type CollectionEntry } from 'astro:content';
 import haBatteryNotes from '../assets/portfolio/ha-battery-notes.png';
 import haBoardoil from '../assets/portfolio/ha-boardoil.png';
@@ -59,6 +60,7 @@ const appImgSrc = appImg ? imageMap[appImg] : null;
             alt={`App icon for ${title}`}
             width={120}
             height={120}
+            loading="eager"
           />
         )
       }

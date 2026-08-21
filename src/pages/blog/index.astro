@@ -140,11 +140,17 @@ const categories = Array.from(allCategories).sort();
 				)}
 				<ul id="blog-posts">
 					{
-						posts.map((post) => (
+						posts.map((post, index) => (
 							<li data-categories={JSON.stringify(post.data.categories || [])}>
 								<a href={`/blog/${post.id}/`}>
 									{post.data.heroImage && (
-										<Image width={720} height={360} src={post.data.heroImage} alt="" />
+										<Image
+											width={720}
+											height={360}
+											src={post.data.heroImage}
+											alt=""
+											loading={index < 2 ? 'eager' : 'lazy'}
+										/>
 									)}
 									<h4 class="title">{post.data.title}</h4>
 									<p class="date">
@@ -160,7 +166,7 @@ const categories = Array.from(allCategories).sort();
 		<Footer />
 		<script>
 			const categoryTags = document.querySelectorAll('[data-category]');
-			const blogPosts = document.querySelectorAll('#blog-posts li');
+			const blogPosts = document.querySelectorAll<HTMLLIElement>('#blog-posts li');
 
 			categoryTags.forEach((tag) => {
 				tag.addEventListener('click', (e) => {

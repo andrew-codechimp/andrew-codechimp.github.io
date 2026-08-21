@@ -19,19 +19,21 @@ const renderedItems = await Promise.all(
 	}))
 );
 
+type RenderedPortfolioItem = (typeof renderedItems)[number];
+
 // Group portfolio items by category
-const portfolioByCategory = new Map();
+const portfolioByCategory = new Map<string, RenderedPortfolioItem[]>();
 for (const item of renderedItems) {
 	const categoryId = item.data.category || 'uncategorized';
 	if (!portfolioByCategory.has(categoryId)) {
 		portfolioByCategory.set(categoryId, []);
 	}
-	portfolioByCategory.get(categoryId).push(item);
+	portfolioByCategory.get(categoryId)?.push(item);
 }
 
 // Sort items within each category by order
-portfolioByCategory.forEach((items) => {
-	items.sort((a, b) => {
+portfolioByCategory.forEach((items: RenderedPortfolioItem[]) => {
+	items.sort((a: RenderedPortfolioItem, b: RenderedPortfolioItem) => {
 		const orderA = a.data.order ?? 999;
 		const orderB = b.data.order ?? 999;
 		return orderA - orderB;
@@ -55,7 +57,7 @@ const sortedCategories = PORTFOLIO_CATEGORIES.filter(cat => portfolioByCategory.
 					<div class="category-section">
 						<h2 class="category-title">{category.name}</h2>
 						<div class="portfolio-grid">
-							{portfolioByCategory.get(category.id)?.map((item) => (
+							{portfolioByCategory.get(category.id)?.map((item: RenderedPortfolioItem) => (
 								<div class="portfolio-item">
 									<PortfolioCard item={item}>
 										<item.Content />
