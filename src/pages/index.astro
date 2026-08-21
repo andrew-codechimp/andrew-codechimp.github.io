@@ -50,7 +50,7 @@ const sortedCategories = PORTFOLIO_CATEGORIES.filter(cat => portfolioByCategory.
 	<body>
 		<Header />
 		<main>
-			<section class="portfolio-section">				
+			<section class="portfolio-section">			
 				{sortedCategories.map((category) => (
 					<div class="category-section">
 						<h2 class="category-title">{category.name}</h2>
@@ -76,10 +76,11 @@ const sortedCategories = PORTFOLIO_CATEGORIES.filter(cat => portfolioByCategory.
 		width: 100%;
 		max-width: 100%;
 		box-sizing: border-box;
+		padding-top: 1rem;
 	}
 
 	.portfolio-section {
-		padding: 2rem 1rem;
+		padding: 0.75rem 1rem 2rem;
 		max-width: 1200px;
 		margin: 0 auto;
 	}
@@ -101,13 +102,20 @@ const sortedCategories = PORTFOLIO_CATEGORIES.filter(cat => portfolioByCategory.
 		margin-right: auto;
 	}
 
+	.portfolio-page-label {
+		margin: 0;
+		font-size: 1.2rem;
+		font-weight: 200;
+		line-height: 1.2;
+	}
+
 	.category-section {
 		margin-bottom: 3rem;
 	}
 
 	.category-title {
-		font-size: 1.8rem;
-		font-weight: 600;
+		font-size: 1.6rem;
+		font-weight: 500;
 		margin-bottom: 0.5rem;
 		margin-top: 2rem;
 		padding-bottom: 0.5rem;
@@ -133,11 +141,11 @@ const sortedCategories = PORTFOLIO_CATEGORIES.filter(cat => portfolioByCategory.
 
 	@media (max-width: 768px) {
 		main {
-			padding: 1rem 0.5rem;
+			padding: 0.5rem 0.5rem 1rem;
 		}
 
 		.portfolio-section {
-			padding: 1rem 0.25rem;
+			padding: 0.5rem 0.25rem 1rem;
 		}
 
 		h1 {
@@ -145,6 +153,10 @@ const sortedCategories = PORTFOLIO_CATEGORIES.filter(cat => portfolioByCategory.
 		}
 
 		.category-title {
+			font-size: 1.4rem;
+		}
+
+		.portfolio-page-label {
 			font-size: 1.4rem;
 		}
 
