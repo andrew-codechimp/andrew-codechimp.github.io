@@ -106,6 +106,7 @@ const appImgSrc = appImg ? imageMap[appImg] : null;
     margin: 0;
     font-size: 1.5rem;
     font-weight: 600;
+    overflow-wrap: anywhere;
   }
 
   .subtitle {
@@ -155,11 +156,13 @@ const appImgSrc = appImg ? imageMap[appImg] : null;
 
   .card-store-link a {
     display: inline-block;
+    max-width: 100%;
     padding: 0.5rem 1rem;
     background: var(--primary, #0066cc);
     color: white;
     text-decoration: none;
     border-radius: 4px;
+    box-sizing: border-box;
     transition: background 0.3s ease;
   }
 

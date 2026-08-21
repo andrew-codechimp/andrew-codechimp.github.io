@@ -75,6 +75,7 @@ const sortedCategories = PORTFOLIO_CATEGORIES.filter(cat => portfolioByCategory.
 	main {
 		width: 100%;
 		max-width: 100%;
+		box-sizing: border-box;
 	}
 
 	.portfolio-section {
@@ -117,6 +118,7 @@ const sortedCategories = PORTFOLIO_CATEGORIES.filter(cat => portfolioByCategory.
 		grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 		gap: 1.5rem;
 		margin-top: 1.5rem;
+		min-width: 0;
 	}
 
 	.portfolio-item {
