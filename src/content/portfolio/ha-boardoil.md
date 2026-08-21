@@ -8,4 +8,4 @@ category: 'home-assistant'
 order: 30
 ---
 
-A Home Assistant integration to slickly automate your [BoardOil](https://boardoil.dozigden.com) tasks.
+Slickly automate your [BoardOil](https://boardoil.dozigden.com) tasks.
