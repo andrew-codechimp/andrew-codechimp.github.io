@@ -141,6 +141,19 @@ const sortedCategories = PORTFOLIO_CATEGORIES.filter(cat => portfolioByCategory.
 		min-width: 0;
 	}
 
+	:global(.card-content) {
+		align-items: flex-start;
+	}
+
+	:global(.card-text) {
+		align-self: flex-start;
+	}
+
+	:global(.card-text > :first-child) {
+		margin-top: 0 !important;
+		padding-top: 0 !important;
+	}
+
 	@media (max-width: 768px) {
 		main {
 			padding: 0.5rem 0.5rem 1rem;
