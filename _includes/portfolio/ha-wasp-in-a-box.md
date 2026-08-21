@@ -1,1 +1,0 @@
-A Home Assistant helper that creates an occupancy sensor that helps determine reliable occupancy for enclosed spaces while a person remains inside, even if out of range of the motion sensor or being still.
