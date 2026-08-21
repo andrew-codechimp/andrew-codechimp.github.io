@@ -79,6 +79,20 @@ const appImgSrc = appImg ? imageMap[appImg] : null;
   }
 </section>
 
+<script is:inline>
+  // Add target="_blank" to all links in card descriptions
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.card-text a').forEach((link) => {
+      link.setAttribute('target', '_blank');
+    });
+  });
+  
+  // Also run immediately in case DOMContentLoaded already fired
+  document.querySelectorAll('.card-text a').forEach((link) => {
+    link.setAttribute('target', '_blank');
+  });
+</script>
+
 <style>
   .card {
     background: var(--surface, #ffffff);
