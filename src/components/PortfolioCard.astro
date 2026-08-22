@@ -73,7 +73,7 @@ const appImgSrc = appImg ? imageMap[appImg] : null;
   {
     storeUrl && storeText && (
       <div class="card-store-link">
-        <a href={storeUrl}>{storeText}</a>
+        <a href={storeUrl} target="_blank" rel="noopener noreferrer">{storeText}</a>
       </div>
     )
   }
