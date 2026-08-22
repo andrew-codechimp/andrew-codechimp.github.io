@@ -5,6 +5,8 @@ pubDate: '2017-05-24'
 categories: ['android']
 ---
 
+import { Gist } from 'astro-embed';
+
 I have used build numbers to version APK's for a while but with the advent of Android Wear 2 multi APK publishing has forced me to think of a creative solution to continue to use build numbers.
 
 The example here is specifically for Android Wear but the principals could easily be adopted for other multi APK needs such as resource or min-sdk specific versions.  Likewise most CI platforms will expose build numbers in a similar way to Jenkins so a similar method could be used regardless of your CI platform.
@@ -25,4 +27,4 @@ Finally, I like to maintain manual versions for local ad-hoc builds so I check i
 
 The Gist below shows the relevant sections of build.gradle files for a typical mobile and wear app along with my static manual version codes in gradle properties and the string mashing I do within Jenkins git publisher.
 
-{% gist e05e0f508796e3e863e1fa6a1867a9b0 %}
+<Gist id="https://gist.github.com/e05e0f508796e3e863e1fa6a1867a9b0" />

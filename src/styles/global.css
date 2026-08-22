@@ -46,19 +46,19 @@ h6 {
 	line-height: 1.2;
 }
 h1 {
-	font-size: 3.052em;
-}
-h2 {
 	font-size: 2.441em;
 }
-h3 {
+h2 {
 	font-size: 1.953em;
 }
-h4 {
+h3 {
 	font-size: 1.563em;
 }
-h5 {
+h4 {
 	font-size: 1.25em;
+}
+h5 {
+	font-size: 1em;
 }
 strong,
 b {
@@ -95,13 +95,18 @@ code {
 	padding: 2px 5px;
 	background-color: rgb(var(--gray-light));
 	border-radius: 2px;
+	font-size: 0.7em;
+	line-height: 1;
 }
 pre {
 	padding: 1.5em;
 	border-radius: 8px;
+	line-height: 1.2;
 }
 pre > code {
 	all: unset;
+	font-size: 0.7em;
+	font-family: inherit;
 }
 blockquote {
 	border-left: 4px solid var(--accent);

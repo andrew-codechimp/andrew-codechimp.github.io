@@ -6,7 +6,9 @@ heroImage: '../../assets/blog/2020-12-03-multiple-complications-in-watchos7/demo
 categories: ['swiftui iosdev']
 ---
 
-![Header Image](/assets/2020-12-03-multiple-complications-in-watchos7/header.jpeg)
+import { Gist } from 'astro-embed';
+
+![Header Image](../../assets/blog/2020-12-03-multiple-complications-in-watchos7/header.jpeg)
 
 With watchOS 7, you can now add multiple complications to your app, exposing different types of views onto your data. Whilst the demo at WWDC 2020 showed how to add multiple complications, it did not detail how to handle interacting with them. For a good user experience when a complication is tapped, you want to open your app in a state that’s relevant to that particular complication.
 
@@ -18,7 +20,7 @@ We will just create one complication family for this example — a `graphicRecta
 
 Here’s our app in action:
 
-![Demo Image](/assets/2020-12-03-multiple-complications-in-watchos7/demo.gif)
+![Demo Image](../../assets/blog/2020-12-03-multiple-complications-in-watchos7/demo.gif)
 
 Throughout this article, I will call out the relevant code you will need to add to an existing watch app project.
 
@@ -29,15 +31,15 @@ Before we get to the complications, we need to create the actual watch app.
 
 For this example, we will create a simple static data model shared between the app and the complications:
 
-{% gist 83f267cb9f807602d31a799db72d2b70 %}
+<Gist id="https://gist.github.com/83f267cb9f807602d31a799db72d2b70" />
 
 To view this in the app, we’ll reutilise the default `ContentView` provided by a new watch app template, just adding a publication state variable and displaying the properties:
 
-{% gist b43decdfd79dc0569f790d914f8858d4 %}
+<Gist id="https://gist.github.com/b43decdfd79dc0569f790d914f8858d4" />
 
 For the tabs, we will reuse this single `ContentView` and use the new SwiftUI app lifecycle to add tabs, passing in the publication to make them distinct. In your `App.swift` file, change the `WindowGroup` to add the tabs with an `@state` variable to maintain the currently selected tab. The tag modifiers of each `ContentView` are important. These are what map the `selectedTab` state to each view:
 
-{% gist fe19e90ba685a89c1ae76fae3d46d27e %}
+<Gist id="https://gist.github.com/fe19e90ba685a89c1ae76fae3d46d27e" />
 
 That’s all you need for the app at the moment. You’ll have three views you can swipe through, each showing their publication name and latest headline.
 
@@ -48,15 +50,15 @@ If you’ve created basic complications, you’ll know `ComplicationController` 
 
 The `getLocalizableSampleTemplate` function is what will get presented on the preview for adding a new complication. It’s important to note that this is cached and so cannot be updated to show real complication data. The complication descriptors are what we use to give uniqueness to each complication (which we will handle soon), so this template just shows placeholder text for the publication and the latest headline:
 
-{% gist 3d94c6516085452dcd67ed24efebc36f %}
+<Gist id="https://gist.github.com/3d94c6516085452dcd67ed24efebc36f" />
 
 The `createTemplate` function is very simple. We’ll get the publication for the identifier selected for this complication and display the publication name and latest headline:
 
-{% gist d2c01a2a1a72ee46a7183375fab4f7cb %}
+<Gist id="https://gist.github.com/d2c01a2a1a72ee46a7183375fab4f7cb" />
 
 Nothing new so far. The important element added with watchOS 7 is the `getComplicationDescriptors` function. This allows us to describe what complications we are making available:
 
-{% gist d7e731b697a274bd6a7b229156db13d3 %}
+<Gist id="https://gist.github.com/d7e731b697a274bd6a7b229156db13d3" />
 
 What we are doing here is creating descriptors for our tabs of data. The `displayName` is what’s used when editing a watch face to describe the particular complication instance. The `Dictionary` and `NSUserActivity` are how we identify the complication type the user has tapped on when we re-enter our app, which we’ll get into next.
 
@@ -67,14 +69,14 @@ It’s important to note that there is a limit to the number of descriptors you 
 # Responding to Complication Taps
 Back to our app code. We need to know when a complication is tapped. This is achieved by registering for onContinueUserActivity events for your activity type you specified when creating the descriptors:
 
-{% gist 5d5b3a24bfa74dfd4f62fdbba273ebcc %}
+<Gist id="https://gist.github.com/5d5b3a24bfa74dfd4f62fdbba273ebcc" />
 
 Here, we are adding `onContinueUserActivity` to our `NavigationView` and changing the `selectedTab` state variable to the ID passed in the `userActivity`, which will change our tab view to the relevant tab.
 
 # Updating Complication Descriptions
 Whilst not necessary in this example, if your complications change, you will want to update the descriptors and probably the timeline for existing complications. For this, we’ll use the new `scenePhase` change to detect when our app goes into the background and notify watchOS that we have changed things:
 
-{% gist e5be043529e8feb89705946693a01122 %}
+<Gist id="https://gist.github.com/e5be043529e8feb89705946693a01122" />
 
 ---
 

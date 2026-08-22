@@ -10,7 +10,6 @@ I dug into Gradle a little and found you can have project level variables so I p
 
 ### gradle.properties (project level)
 ```
-...
 VERSION_NAME=1.0.0
 VERSION_CODE=1
 build.gradle (module level)
@@ -21,5 +20,4 @@ android {
         versionCode Integer.parseInt(project.VERSION_CODE)
         ...
     }
-...
 ```

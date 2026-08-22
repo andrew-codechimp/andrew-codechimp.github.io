@@ -6,13 +6,15 @@ heroImage: '../../assets/blog/2021-01-19-how-to-securely-access-your-users-clipb
 categories: ['swiftui iosdev']
 ---
 
-![Header Image](/assets/2021-01-19-how-to-securely-access-your-users-clipboard-in-ios14/header.jpeg)
+import { Gist } from 'astro-embed';
+
+![Header Image](../../assets/blog/2021-01-19-how-to-securely-access-your-users-clipboard-in-ios14/header.jpeg)
 
 With the introduction of iOS 14, Apple has given users new insight into what apps are doing. One key feature involves the often-overlooked pasteboard (or as most know it, the clipboard). Previously, any app could inspect the pasteboard contents whenever they wanted. Usually, this was for automatically extracting links or phone numbers, but it left the gates open for more malicious snooping.
 
 Now, whenever an app inspects the value of the pasteboard, the user is notified by a temporary popup telling them that they have potentially given important information to this app.
 
-![Demo Image](/assets/2021-01-19-how-to-securely-access-your-users-clipboard-in-ios14/demo.gif)
+![Demo Image](../../assets/blog/2021-01-19-how-to-securely-access-your-users-clipboard-in-ios14/demo.gif)
 
 This led to some high-profile apps being called out for what seemed like unreasonable behaviour, forcing them to quickly explain why they were snooping on the pasteboard in the first place. In many cases, they quickly removed pasteboard inspection.
 
@@ -22,7 +24,7 @@ To allow legitimate pasteboard inspection, Apple has provided a new API to help 
 
 This article will explain how to use this feature and also some unexpected limitations. To help you explore whilst learning this new API, I’ve created a very simple SwiftUI application that uses all the options of the API. To set up the sample, create a new SwiftUI application in Xcode, calling it whatever you like, and paste the code below into the `ContentView.swift` file:
 
-{% gist 40938ba1a9166216e472c92a1a5172a7 %}
+<Gist id="https://gist.github.com/40938ba1a9166216e472c92a1a5172a7" />
 
 The main body of the code is simple if you are familiar with SwiftUI. It creates a button and a text view. The button will look at the pasteboard, conditionally get the contents, and display them in the text view. The piece we’ll concentrate on is the inspectPasteboard function, breaking it down section by section. If you aren’t using SwiftUI, don’t worry. The pasteboard methods work with UIKit as well, but for this example, getting something on the screen is easier with SwiftUI.
 

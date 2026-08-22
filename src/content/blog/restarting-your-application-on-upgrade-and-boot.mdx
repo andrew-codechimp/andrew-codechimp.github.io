@@ -5,7 +5,7 @@ pubDate: '2015-07-11'
 categories: ['android']
 ---
 
-I have an application which displays an ongoing notification and although it's well documented how to start something on boot it's less well known how to do so when your app is upgraded. So every time my app was upgraded users would have to manually start the app or wait for the next reboot. It's pretty simple to get code to fire on an upgrade, just use the MY_PACKAGE_REPLACED intent. I usually combine this with the BOOT_COMPLETED to fire the same receiver to set things up properly. It's also important to set your install location to internalOnly otherwise your external storage may not be mounted and the receiver won't fire. Here's the relevant manifest entry and a simple broadcast receiver to do it. 
+I have an Android application which displays an ongoing notification and although it's well documented how to start something on boot it's less well known how to do so when your app is upgraded. So every time my app was upgraded users would have to manually start the app or wait for the next reboot. It's pretty simple to get code to fire on an upgrade, just use the MY_PACKAGE_REPLACED intent. I usually combine this with the BOOT_COMPLETED to fire the same receiver to set things up properly. It's also important to set your install location to internalOnly otherwise your external storage may not be mounted and the receiver won't fire. Here's the relevant manifest entry and a simple broadcast receiver to do it. 
 
 ### AndroidManifest.xml
 ```
