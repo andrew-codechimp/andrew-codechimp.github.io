@@ -21,7 +21,7 @@ interface Props {
 }
 
 const { item } = Astro.props;
-const { title, description, appImg, storeUrl, storeText, subtitle } = item.data;
+const { title, description, appImg, storeUrl, storeText, subtitle, installUrl, installText } = item.data;
 
 // Map filename to imported image
 const imageMap: Record<string, ImageMetadata> = {
@@ -71,11 +71,20 @@ const appImgSrc = appImg ? imageMap[appImg] : null;
   </div>
 
   {
-    storeUrl && storeText && (
-      <div class="card-store-link">
-        <a href={storeUrl} target="_blank" rel="noopener noreferrer">{storeText}</a>
+    (storeUrl && storeText) || (installUrl && installText) ? (
+      <div class="card-actions">
+        {storeUrl && storeText && (
+          <a href={storeUrl} target="_blank" rel="noopener noreferrer" class="card-action-link">
+            {storeText}
+          </a>
+        )}
+        {installUrl && installText && (
+          <a href={installUrl} target="_blank" rel="noopener noreferrer" class="card-action-link">
+            {installText}
+          </a>
+        )}
       </div>
-    )
+    ) : null
   }
 </section>
 
@@ -180,7 +189,8 @@ const appImgSrc = appImg ? imageMap[appImg] : null;
   .card-store-link a {
     display: inline-block;
     max-width: 100%;
-    padding: 0.5rem 1rem;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
     background: var(--primary, #0066cc);
     color: white;
     text-decoration: none;
@@ -191,6 +201,33 @@ const appImgSrc = appImg ? imageMap[appImg] : null;
 
   .card-store-link a:hover {
     background: var(--primary-dark, #0052a3);
+  }
+
+  .card-actions {
+    margin-top: auto;
+    padding-top: 1rem;
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .card-action-link {
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    background: transparent;
+    color: var(--primary, #0066cc);
+    border: 1px solid var(--primary, #0066cc);
+    text-decoration: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .card-action-link:hover {
+    background: var(--primary, #0066cc);
+    color: white;
   }
 
   @media (max-width: 640px) {

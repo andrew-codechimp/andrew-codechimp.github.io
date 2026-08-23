@@ -31,6 +31,8 @@ const portfolio = defineCollection({
 			appImg: z.optional(z.string()),
 			storeUrl: z.optional(z.string()),
 			storeText: z.optional(z.string()),
+			installUrl: z.optional(z.string()),
+			installText: z.optional(z.string()),
 			category: z.optional(z.string()),
 			order: z.optional(z.number()),
 			exclude: z.optional(z.boolean()),

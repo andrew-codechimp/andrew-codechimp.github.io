@@ -4,6 +4,8 @@ description: ''
 appImg: 'ha-wasp-in-a-box.png'
 storeUrl: 'https://github.com/andrew-codechimp/HA-Wasp-In-A-Box'
 storeText: 'View on GitHub'
+installUrl: 'https://my.home-assistant.io/redirect/hacs_repository/?owner=andrew-codechimp&repository=HA-Wasp-In-A-Box&category=Integration'
+installText: 'Install via HACS'
 category: 'home-assistant'
 order: 7
 ---

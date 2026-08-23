@@ -4,6 +4,8 @@ description: ''
 appImg: 'ha-hive-local-thermostat.png'
 storeUrl: 'https://github.com/andrew-codechimp/HA-Hive-Local-Thermostat'
 storeText: 'View on GitHub'
+installUrl: 'https://my.home-assistant.io/redirect/hacs_repository/?owner=andrew-codechimp&repository=HA-Hive-Local-Thermostat&category=Integration'
+installText: 'Install via HACS'
 exclude: true
 category: 'home-assistant'
 order: 10
