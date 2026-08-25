@@ -8,7 +8,7 @@ installUrl: 'https://my.home-assistant.io/redirect/hacs_repository/?owner=andrew
 installText: 'Install via HACS'
 exclude: true
 category: 'home-assistant'
-order: 10
+order: 99
 ---
 
 Local Hive Thermostat MQTT integration for Home Assistant.

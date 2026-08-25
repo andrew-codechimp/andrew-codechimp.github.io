@@ -7,7 +7,7 @@ storeText: 'View on GitHub'
 installUrl: 'https://my.home-assistant.io/redirect/hacs_repository/?owner=andrew-codechimp&repository=HA-Label-State&category=Integration'
 installText: 'Install via HACS'
 category: 'home-assistant'
-order: 4
+order: 5
 ---
 
 A helper that creates a binary sensor reflecting if all entities with a label satisfy a condition.

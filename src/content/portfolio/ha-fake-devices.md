@@ -7,7 +7,7 @@ storeText: 'View on GitHub'
 installUrl: 'https://my.home-assistant.io/redirect/hacs_repository/?owner=andrew-codechimp&repository=HA-Fake-Devices&category=Integration'
 installText: 'Install via HACS'
 category: 'home-assistant'
-order: 6
+order: 7
 ---
 
 Create fake devices allowing you to attach helper entities.  
