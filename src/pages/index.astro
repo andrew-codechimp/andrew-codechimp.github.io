@@ -52,21 +52,26 @@ const sortedCategories = PORTFOLIO_CATEGORIES.filter(cat => portfolioByCategory.
 	<body>
 		<Header />
 		<main>
-			<section class="portfolio-section">			
-				{sortedCategories.map((category) => (
-					<div class="category-section">
-						<h2 class="category-title">{category.name}</h2>
-						<div class="portfolio-grid">
-							{portfolioByCategory.get(category.id)?.map((item: RenderedPortfolioItem) => (
-								<div class="portfolio-item">
-									<PortfolioCard item={item}>
-										<item.Content />
-									</PortfolioCard>
-								</div>
-							))}
+			<section class="portfolio-section">
+				<div id="portfolio-grid">
+					{sortedCategories.map((category) => (
+						<div class="category-section" id={category.id} data-category={category.id}>
+							<h2 class="category-title">
+								{category.name}
+								<a href={`#${category.id}`} class="section-anchor">#</a>
+							</h2>
+							<div class="portfolio-grid">
+								{portfolioByCategory.get(category.id)?.map((item: RenderedPortfolioItem) => (
+									<div class="portfolio-item">
+										<PortfolioCard item={item}>
+											<item.Content />
+										</PortfolioCard>
+									</div>
+								))}
+							</div>
 						</div>
-					</div>
-				))}
+					))}
+				</div>
 			</section>
 		</main>
 		<Footer />
@@ -120,6 +125,28 @@ const sortedCategories = PORTFOLIO_CATEGORIES.filter(cat => portfolioByCategory.
 		font-weight: 500;
 		margin-bottom: 0.5rem;
 		margin-top: 0.5rem;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.section-anchor {
+		display: inline-block;
+		width: 1.6rem;
+		height: 1.6rem;
+		color: var(--text-secondary, #666);
+		text-decoration: none;
+		opacity: 0;
+		transition: opacity 0.2s ease;
+		font-weight: 400;
+	}
+
+	.category-section:hover .section-anchor {
+		opacity: 1;
+	}
+
+	.section-anchor:hover {
+		color: var(--accent, #0066cc);
 	}
 
 	.portfolio-grid {
