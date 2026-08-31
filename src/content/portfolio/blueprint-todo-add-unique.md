@@ -1,0 +1,15 @@
+---
+title: 'Add unique to-do'
+description: ''
+appImg: 'script.png'
+storeUrl: 'https://github.com/andrew-codechimp/HA-Blueprints/blob/main/scripts/todo_add_unique.yaml'
+storeText: 'View on GitHub'
+installUrl: 'https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fandrew-codechimp%2FHA-Blueprints%2Fblob%2Fmain%2Fscripts%2Ftodo_add_unique.yaml'
+installText: 'Install'
+category: 'blueprints'
+order: 1
+---
+
+Add an item to a to-do list if the item does not already exist.
+    
+The item name is compared to the existing items in the list.

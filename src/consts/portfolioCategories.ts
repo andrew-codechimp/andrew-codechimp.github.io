@@ -11,8 +11,13 @@ export const PORTFOLIO_CATEGORIES: PortfolioCategory[] = [
 		order: 1,
 	},
 	{
+		id: 'blueprints',
+		name: 'Home Assistant Blueprints',
+		order: 2,
+	},	
+	{
 		id: 'other',
 		name: 'Other',
-		order: 2,
+		order: 3,
 	},
 ];
