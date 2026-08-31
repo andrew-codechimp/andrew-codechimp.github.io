@@ -10,6 +10,8 @@ category: 'blueprints'
 order: 1
 ---
 
-Add an item to a to-do list if the item does not already exist.
+A script to add an item to a to-do list if the item does not already exist.
     
 The item name is compared to the existing items in the list.
+
+This blueprint is a simple distribution wrapper around a generic script that can be reused on any to-do list.
