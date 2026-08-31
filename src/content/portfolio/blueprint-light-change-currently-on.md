@@ -1,10 +1,10 @@
 ---
-title: 'Light - Change'
+title: 'Light - Change currently on'
 description: ''
 appImg: 'script.png'
-storeUrl: 'https://github.com/andrew-codechimp/HA-Blueprints/blob/main/scripts/light_change.yaml'
+storeUrl: 'https://github.com/andrew-codechimp/HA-Blueprints/blob/main/scripts/light_change_currently_on.yaml'
 storeText: 'View on GitHub'
-installUrl: 'https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fandrew-codechimp%2FHA-Blueprints%2Fblob%2Fmain%2Fscripts%2Flight_change.yaml'
+installUrl: 'https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fandrew-codechimp%2FHA-Blueprints%2Fblob%2Fmain%2Fscripts%2Flight_change_currently_on.yaml'
 installText: 'Install'
 category: 'ha-blueprints'
 order: 2
