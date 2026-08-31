@@ -1,5 +1,5 @@
 ---
-title: 'Add unique calendar event'
+title: 'Calendar - Add unique event'
 description: ''
 appImg: 'script.png'
 storeUrl: 'https://github.com/andrew-codechimp/HA-Blueprints/blob/main/scripts/calendar_add_unique_event.yaml'

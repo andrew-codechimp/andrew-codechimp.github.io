@@ -1,5 +1,5 @@
 ---
-title: 'Add unique to-do item'
+title: 'To-do - Add unique item'
 description: ''
 appImg: 'script.png'
 storeUrl: 'https://github.com/andrew-codechimp/HA-Blueprints/blob/main/scripts/todo_add_unique_item.yaml'
