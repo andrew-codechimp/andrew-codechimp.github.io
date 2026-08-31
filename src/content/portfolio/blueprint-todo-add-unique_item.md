@@ -6,7 +6,7 @@ storeUrl: 'https://github.com/andrew-codechimp/HA-Blueprints/blob/main/scripts/t
 storeText: 'View on GitHub'
 installUrl: 'https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fandrew-codechimp%2FHA-Blueprints%2Fblob%2Fmain%2Fscripts%2Ftodo_add_unique_item.yaml'
 installText: 'Install'
-category: 'blueprints'
+category: 'ha-blueprints'
 order: 1
 ---
 

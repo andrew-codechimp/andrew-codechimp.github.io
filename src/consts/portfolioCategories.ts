@@ -6,12 +6,12 @@ export interface PortfolioCategory {
 
 export const PORTFOLIO_CATEGORIES: PortfolioCategory[] = [
 	{
-		id: 'home-assistant',
+		id: 'ha-integrations',
 		name: 'Home Assistant Integrations',
 		order: 1,
 	},
 	{
-		id: 'blueprints',
+		id: 'ha-blueprints',
 		name: 'Home Assistant Blueprints',
 		order: 2,
 	},	

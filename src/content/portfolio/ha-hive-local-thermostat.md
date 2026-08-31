@@ -7,7 +7,7 @@ storeText: 'View on GitHub'
 installUrl: 'https://my.home-assistant.io/redirect/hacs_repository/?owner=andrew-codechimp&repository=HA-Hive-Local-Thermostat&category=Integration'
 installText: 'Install via HACS'
 exclude: true
-category: 'home-assistant'
+category: 'ha-integrations'
 order: 99
 ---
 
