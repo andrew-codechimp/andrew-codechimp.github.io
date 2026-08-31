@@ -12,6 +12,6 @@ order: 2
 
 A script to add an event to a calendar if the event does not already exist.
 
-The event summary is compared to the existing calendar items.
+The event summary is compared to the existing calendar events.
 
 This blueprint is a simple distribution wrapper around a generic script that can be reused on any calendar.
