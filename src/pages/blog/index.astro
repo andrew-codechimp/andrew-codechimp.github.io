@@ -62,22 +62,11 @@ const categories = Array.from(allCategories).sort();
 				padding: 0;
 			}
 			ul li {
-				width: calc(50% - 1rem);
+				width: 100%;
 			}
 			ul li * {
 				text-decoration: none;
 				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
 			}
 			ul li img {
 				margin-bottom: 0.5rem;
@@ -90,6 +79,10 @@ const categories = Array.from(allCategories).sort();
 				margin: 0;
 				color: rgb(var(--black));
 				line-height: 1;
+			}
+			.description {
+				margin: 0;
+				color: rgb(var(--gray));
 			}
 			.date {
 				margin: 0;
@@ -151,12 +144,13 @@ const categories = Array.from(allCategories).sort();
 											alt=""
 											loading={index < 2 ? 'eager' : 'lazy'}
 										/>
-									)}
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
+									)}								
+								<h4 class="title">{post.data.title}</h4>
 								</a>
+								<p class="description">{post.data.description}</p>
+								<p class="date">
+									<FormattedDate date={post.data.pubDate} />
+								</p>								
 							</li>
 						))
 					}
