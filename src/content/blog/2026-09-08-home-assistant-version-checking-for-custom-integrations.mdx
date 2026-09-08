@@ -1,0 +1,75 @@
+---
+title: 'Home Assistant version checking for custom integrations'
+description: 'Ensuring that your custom integrations are running on a supported Home Assistant version.'
+pubDate: '2026-09-08'
+categories: ['HA Dev']
+---
+
+Custom integrations do not benefit from always running on the latest Home Assistant version, so it's important to be defensive both for your minimum supported version and also to handle breaking or deprecated changes until you can reach a minimum version that removes these.
+
+There are several techniques you can use to check and enforce the Home Assistant version for your custom integrations.
+
+# HACS Configuration
+
+Most users install custom integrations via HACS, which makes updates easy and has a built in method for not allowing install/updates on unsupported Home Assistant versions.
+
+Just specify the minimum version you support within the hacs.json file.
+
+```text title="hacs.json"
+{
+    "name": "Your Integration",
+    ...
+    "homeassistant": "2026.4.0",
+    ...
+}
+```
+
+This will not display the integration in HACS if the user's Home Assistant version is below the specified minimum.
+
+# Integration Startup
+
+When your custom integration starts up, you can check the Home Assistant version and take appropriate action if it doesn't meet your minimum requirements.
+
+```python title="__init__.py"
+from logging import getLogger
+
+from awesomeversion.awesomeversion import AwesomeVersion
+
+from homeassistant.const import __version__ as HA_VERSION
+from homeassistant.core import HomeAssistant
+from homeassistant.helpers import config_validation as cv
+from homeassistant.helpers.typing import ConfigType
+
+_logger = getLogger(__package__)
+
+DOMAIN = "your_integration_domain"
+MIN_HA_VERSION = "2026.4"
+CONFIG_SCHEMA = cv.config_entry_only_config_schema(DOMAIN)
+
+async def async_setup(
+    hass: HomeAssistant,
+    config: ConfigType,
+) -> bool:
+    """Integration setup."""
+
+    if AwesomeVersion(HA_VERSION) < AwesomeVersion(MIN_HA_VERSION):
+        msg = (
+            "This integration requires at least Home Assistant version "
+            f"{MIN_HA_VERSION}, you are running version {HA_VERSION}. "
+            "Please upgrade Home Assistant to continue using this integration."
+        )
+        _logger.critical(msg)
+        return False
+
+    return True
+```
+
+This ensures that if users installed the integration manually it still won't run if their Home Assistant version is below the required minimum.
+
+The `CONFIG_SCHEMA = cv.config_entry_only_config_schema(DOMAIN)` statement is important to prevent a warning that you have included an async_setup method but no config schema. That's assuming you are creating a modern integration that is only setup from the UI, if you already have a config schema for YAML setup then you should continue using that instead.
+
+In practice, I recommend putting the `DOMAIN` and `MIN_HA_VERSION` constants in a separate `const.py` file within your integration and importing them into your `__init__.py`. This keeps your configuration centralised and makes it easier to update the minimum Home Assistant version in the future.
+
+If you haven't come across [AwesomeVersion](https://github.com/ludeeus/awesomeversion) it's a great library for version comparison, it handles complex version strings and ensures accurate comparisons. I use it for API version checking as well.
+
+The `HA_VERSION` constant can also be used for conditional code execution based on the Home Assistant version, allowing you to maintain compatibility with multiple versions of Home Assistant within your integration.
