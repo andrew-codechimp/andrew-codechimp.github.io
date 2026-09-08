@@ -56,6 +56,23 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.last-updated-on {
 				font-style: italic;
 			}
+			@media (prefers-color-scheme: dark) {
+				.prose {
+					color: rgb(var(--gray-light));
+				}
+				.description {
+					color: rgb(var(--gray-light));
+				}
+				.date {
+					color: rgb(var(--gray-light));
+				}
+				.title h1 {
+					color: rgb(var(--gray-light));
+				}
+				.prose a {
+					color: #00d4ff;
+				}
+			}
 		</style>
 	</head>
 

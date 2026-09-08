@@ -21,7 +21,7 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
+	/* background: linear-gradient(var(--gray-gradient)) no-repeat; */
 	background-size: 100% 600px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
@@ -124,6 +124,31 @@ hr {
 	}
 	main {
 		padding: 1em;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		color: rgb(var(--gray-light));
+		background-color: #000;
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: rgb(var(--gray-light));
+	}
+	code {
+		background-color: rgb(var(--gray-dark));
+		color: rgb(var(--gray-light));
+	}
+	hr {
+		border-top-color: rgb(var(--gray-dark));
+	}
+	a {
+		color: #00d4ff;
 	}
 }
 

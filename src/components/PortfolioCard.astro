@@ -252,4 +252,46 @@ const appImgSrc = appImg ? imageMap[appImg] : null;
       height: 150px;
     }
   }
+
+  @media (prefers-color-scheme: dark) {
+    .card {
+      background: #1a1a1a;
+      border-color: #333;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+    }
+
+    .card-title h2 {
+      color: white;
+    }
+
+    .subtitle {
+      color: rgb(var(--gray-light));
+    }
+
+    .card-text {
+      color: rgb(var(--gray-light));
+    }
+
+    .card-text a {
+      color: #00d4ff;
+    }
+
+    .card-text a:hover {
+      color: #00b3e6;
+    }
+
+    .card-action-link {
+      color: #00d4ff;
+      border-color: #00d4ff;
+    }
+
+    .card-action-link:hover {
+      background: #00d4ff;
+      color: #000;
+    }
+  }
 </style>

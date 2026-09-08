@@ -72,4 +72,22 @@ import HeaderLink from './HeaderLink.astro';
 			display: none;
 		}
 	}
+	@media (prefers-color-scheme: dark) {
+		header {
+			background: #000;
+			box-shadow: 0 2px 8px rgba(var(--gray-light), 10%);
+		}
+		nav a {
+			color: rgb(var(--gray-light));
+		}
+		nav a.active {
+			border-bottom-color: #00d4ff;
+		}
+		h2 a {
+			color: rgb(var(--gray-light));
+		}
+		.social-links a {
+			color: rgb(var(--gray-light));
+		}
+	}
 </style>
