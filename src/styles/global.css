@@ -150,6 +150,9 @@ hr {
 	a {
 		color: #00d4ff;
 	}
+	a:hover {
+		color: #00d4ff;
+	}
 }
 
 .sr-only {
