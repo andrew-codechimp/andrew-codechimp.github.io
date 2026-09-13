@@ -7,6 +7,8 @@ categories: ['HA Dev']
 
 Custom integrations do not benefit from always running on the latest Home Assistant version, so it's important to be defensive both for your minimum supported version and also to handle breaking or deprecated changes until you can reach a minimum version that removes these.
 
+Keeping you custom integration a few months behind the latest Home Assistant version balances both user adoption and the ability to use new Home Assistant core changes or Python language features quickly. Personally I try and maintain 4 months backward compatibility.
+
 There are several techniques you can use to check and enforce the Home Assistant version for your custom integrations.
 
 # HACS Configuration
