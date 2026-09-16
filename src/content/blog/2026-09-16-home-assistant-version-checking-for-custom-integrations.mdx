@@ -32,6 +32,13 @@ This will not display the integration in HACS if the user's Home Assistant versi
 
 When your custom integration starts up, you can check the Home Assistant version and take appropriate action if it doesn't meet your minimum requirements.
 
+```python title="const.py"
+
+DOMAIN = "your_integration_domain"
+MIN_HA_VERSION = "2026.4"
+```
+
+
 ```python title="__init__.py"
 from logging import getLogger
 
@@ -42,10 +49,10 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers import config_validation as cv
 from homeassistant.helpers.typing import ConfigType
 
+from .const import DOMAIN, MIN_HA_VERSION
+
 _logger = getLogger(__package__)
 
-DOMAIN = "your_integration_domain"
-MIN_HA_VERSION = "2026.4"
 CONFIG_SCHEMA = cv.config_entry_only_config_schema(DOMAIN)
 
 async def async_setup(
@@ -70,7 +77,7 @@ This ensures that if users installed the integration manually it still won't run
 
 The `CONFIG_SCHEMA = cv.config_entry_only_config_schema(DOMAIN)` statement is important to prevent a warning that you have included an async_setup method but no config schema. That's assuming you are creating a modern integration that is only setup from the UI, if you already have a config schema for YAML setup then you should continue using that instead.
 
-In practice, I recommend putting the `DOMAIN` and `MIN_HA_VERSION` constants in a separate `const.py` file within your integration and importing them into your `__init__.py`. This keeps your configuration centralised and makes it easier to update the minimum Home Assistant version in the future.
+Keeping the `MIN_HA_VERSION` constants in a separate `const.py` file helps centralize your configuration and makes it easier to update in the future.
 
 If you haven't come across [AwesomeVersion](https://github.com/ludeeus/awesomeversion) it's a great library for version comparison, it handles complex version strings and ensures accurate comparisons. I use it for API version checking as well.
 
