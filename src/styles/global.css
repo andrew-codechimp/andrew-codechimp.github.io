@@ -103,6 +103,9 @@ pre {
 	border-radius: 8px;
 	line-height: 1.2;
 }
+.prose .expressive-code {
+	margin: 2em 0;
+}
 pre > code {
 	all: unset;
 	font-size: 0.7em;
