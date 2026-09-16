@@ -77,7 +77,7 @@ This ensures that if users installed the integration manually it still won't run
 
 The `CONFIG_SCHEMA = cv.config_entry_only_config_schema(DOMAIN)` statement is important to prevent a warning that you have included an async_setup method but no config schema. That's assuming you are creating a modern integration that is only setup from the UI, if you already have a config schema for YAML setup then you should continue using that instead.
 
-Keeping the `MIN_HA_VERSION` constants in a separate `const.py` file helps centralize your configuration and makes it easier to update in the future.
+Keeping the `MIN_HA_VERSION` constant in a separate `const.py` file helps centralize your configuration and makes it easier to update in the future.
 
 If you haven't come across [AwesomeVersion](https://github.com/ludeeus/awesomeversion) it's a great library for version comparison, it handles complex version strings and ensures accurate comparisons. I use it for API version checking as well.
 
