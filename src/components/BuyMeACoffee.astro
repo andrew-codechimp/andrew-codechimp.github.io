@@ -1,0 +1,17 @@
+---
+// src/components/BuyMeACoffee.astro
+interface Props {
+  username: string;
+}
+
+const { username } = Astro.props;
+const bmacUrl = `https://buymeacoffee.com/${username}`;
+---
+
+<a href={bmacUrl} target="_blank" rel="noopener noreferrer">
+  <img 
+    src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" 
+    alt="Buy Me A Coffee" 
+    loading="lazy"
+  />
+</a>
