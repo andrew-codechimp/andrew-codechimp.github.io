@@ -69,7 +69,7 @@ cp homeassistant/components/<integration>/translations/strings.json ~/custom_com
 
 If you need to make temporary changes to the translations, you can edit the `en.json` file directly in the `translations` directory.
 
-# Copy to your Home Assistant
+# Copy your changes to your Home Assistant
 
 Copy your modified integration to your Home Assistant `custom_components` directory. You should have something like this:
 
@@ -84,6 +84,10 @@ If all goes well, you should see your custom integration loaded correctly in Hom
 ![Integration](../../assets/blog/2026-09-27-modify-and-run-core-integrations/integrations.png)
 
 If you do not see the red box icon, Home Assistant is still using the core integration instead of your custom one. Double-check the steps above and look in the logs for clues to help track down the issue.
+
+# Removing your custom integration
+
+If you want to revert to using the core integration, simply delete the custom integration from your `custom_components` directory and restart Home Assistant. The core integration will be used again automatically.
 
 # Going further
 
