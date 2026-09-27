@@ -5,26 +5,25 @@ pubDate: '2026-09-27'
 categories: ['Home Automation']
 ---
 
-Home Assistant's review process and monthly release cycle can be frustrating when you want a quick fix to a core integration but there's a way to run a modified version of a core integration on your own production instance temporarily.
+Home Assistant's review process and monthly release cycle can be frustrating when you want a quick fix to a core integration, but you can temporarily run a modified version on your own production instance.
 
 # Warnings
 
 You should know what you are doing here!
 
-Modifying core integrations, especially changing anything that gets recorded in files could break things when you revert to the core integration.
+Modifying core integrations, especially anything that gets recorded in files, could break things when you revert to the core integration.
 
-Just because a PR has a fix you would like, it does not mean it will eventually be merged and if you rely on it you will be stuck with effectively a fork of the integration and will have to maintain future updates.
+Just because a PR has a fix you would like does not mean it will eventually be merged. If you rely on it, you could end up maintaining your own fork of the integration through future updates.
 
-With those warnings out of the way, and assuming you have a good reason to do this let's proceed.
+With those warnings out of the way, and assuming you have a good reason to do this, let's proceed.
 
 # Copying the files
 
-Grab a copy of the soure code from the Home Assistant repository.  You will want to pick the current release version that you are running rather than the latest to guard against any other changes that may be dependent on core changes in the next release.
+Grab a copy of the source code from the Home Assistant repository. Choose the release version you are currently running rather than the latest version, to avoid changes that may depend on updates to core in the next release.
 
-The [releases](https://github.com/home-assistant/core/releases) page lists all the versions of Home Assistant core. Pick the version that matches your current installation and open the assets drop down and download the zip.
+The [releases](https://github.com/home-assistant/core/releases) page lists all versions of Home Assistant Core. Pick the version that matches your current installation, open the Assets dropdown, and download the ZIP file.
 
-Locate the core integration you want to modify in the Home Assistant source code and copy the entire directory of the integration to a location where you can make changes without affecting the original files. For example:
-
+Locate the core integration you want to modify in the Home Assistant source code and copy its entire directory to a location where you can make changes without affecting the original files. For example:
 
 ```bash
 cp -r homeassistant/components/<integration> ~/custom_components/<integration>
@@ -33,10 +32,11 @@ cp -r homeassistant/components/<integration> ~/custom_components/<integration>
 Make your modifications in the `~/custom_components/<integration>` directory.
 
 # Modifying the manifest file
-A custom integration requires the `manifest.json` file to have a version, whilst core integrations do not as they are tied to the Home Assistant version.  
+
+A custom integration requires a version in its `manifest.json` file, while core integrations do not because they are tied to the Home Assistant version.
 Without a version, Home Assistant will not recognize the custom integration correctly.
 
-Open the `manifest.json` file in the `~/custom_components/<integration>` directory and add a version to the end (ensure you have a comma after the previous last entry)
+Open the `manifest.json` file in the `~/custom_components/<integration>` directory and add a version at the end. Ensure you have a comma after the previous last entry.
 
 ```json
 {
@@ -47,12 +47,12 @@ Open the `manifest.json` file in the `~/custom_components/<integration>` directo
 }
 ```
 
-Any version number will work, I prefer to use a `-dev` suffix to indicate that it is a development version.
+Any version number will work. I prefer to use a `-dev` suffix to indicate that it is a development version.
 
 # Create a translation file
 
-Home Assistant source code only contains an english `strings.json` which is not used by the integration. 
-When you build Home Assistant it will create the proper translation files, but for a quick edit you will have to do this yourself.
+Home Assistant source code only contains an English `strings.json` file, which is not used by the integration.
+When you build Home Assistant, it creates the proper translation files, but for a quick edit, you will have to do this yourself.
 
 Copy the `strings.json` file from the Home Assistant source code and rename it as an `en.json` file in a `translations` directory of your custom integration. For example:
 
@@ -63,16 +63,16 @@ cp homeassistant/components/<integration>/translations/strings.json ~/custom_com
 
 If you need to make temporary changes to the translations, you can edit the `en.json` file directly in the `translations` directory.
 
-# Copy and Restart Home Assistant
+# Copy and restart Home Assistant
 
-Copy your modified integration to your Home Assistant `custom_components` directory, you should have something like this:
+Copy your modified integration to your Home Assistant `custom_components` directory. You should have something like this:
 
 ![Folder Structure](../../assets/blog/2026-09-27-modify-and-run-core-integrations/folder-structure.png)
 
 After modifying the integration and updating the manifest file, restart Home Assistant to load the custom integration.
 
-If all goes well you should see your custom integration loaded correctly in Home Assistant. There will be a red box icon in the bottom right to indicate it's overriding the core integration.
+If all goes well, you should see your custom integration loaded correctly in Home Assistant. A red box icon in the bottom right indicates that it is overriding the core integration.
 
 ![Integration](../../assets/blog/2026-09-27-modify-and-run-core-integrations/integrations.png)
 
-If you do not see the red box icon, it means that Home Assistant is still using the core integration instead of your custom one. Double-check the steps above and look in the logs for any help tracking down the issue.
+If you do not see the red box icon, Home Assistant is still using the core integration instead of your custom one. Double-check the steps above and look in the logs for clues to help track down the issue.
