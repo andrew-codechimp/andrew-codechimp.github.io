@@ -5,11 +5,12 @@ import sitemap from '@astrojs/sitemap';
 import { defineConfig, fontProviders } from 'astro/config';
 
 import expressiveCode from 'astro-expressive-code';
+import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
     site: 'https://codechimp.org',
-    integrations: [expressiveCode(), mdx(), sitemap()],
+    integrations: [expressiveCode(), mdx(), sitemap(), icon()],
     fonts: [
         {
             provider: fontProviders.local(),

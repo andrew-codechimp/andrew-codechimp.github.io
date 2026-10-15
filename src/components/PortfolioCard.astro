@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import { type CollectionEntry } from 'astro:content';
+import { Icon } from 'astro-icon/components';
 import blueprint from '../assets/portfolio/blueprint.png';
 import script from '../assets/portfolio/script.png';
 import automation from '../assets/portfolio/automation.png';
@@ -24,7 +25,7 @@ interface Props {
 }
 
 const { item } = Astro.props;
-const { title, description, appImg, storeUrl, storeText, subtitle, installUrl, installText } = item.data;
+const { title, description, appImg, storeUrl, storeText, subtitle, installUrl, installText, category } = item.data;
 
 // Map filename to imported image
 const imageMap: Record<string, ImageMetadata> = {
@@ -86,6 +87,8 @@ const appImgSrc = appImg ? imageMap[appImg] : null;
         )}
         {installUrl && installText && (
           <a href={installUrl} target="_blank" rel="noopener noreferrer" class="card-action-link">
+            {category === 'ha-integrations' && <Icon name="mdi:store" size="1.35em" aria-hidden="true" />}
+            {category === 'ha-blueprints' && <Icon name="mdi:palette-swatch" size="1.35em" aria-hidden="true" />}
             {installText}
           </a>
         )}
@@ -219,7 +222,9 @@ const appImgSrc = appImg ? imageMap[appImg] : null;
   }
 
   .card-action-link {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
     padding: 0.375rem 0.75rem;
     font-size: 0.875rem;
     background: transparent;
