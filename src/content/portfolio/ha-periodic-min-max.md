@@ -5,7 +5,7 @@ appImg: 'ha-periodic-min-max.png'
 storeUrl: 'https://github.com/andrew-codechimp/HA-Periodic-Min-Max'
 storeText: 'View on GitHub'
 installUrl: 'https://my.home-assistant.io/redirect/hacs_repository/?owner=andrew-codechimp&repository=HA-Periodic-Min-Max&category=Integration'
-installText: 'Install via HACS'
+installText: 'Install'
 category: 'ha-integrations'
 order: 4
 ---

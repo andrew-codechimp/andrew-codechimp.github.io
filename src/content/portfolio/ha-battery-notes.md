@@ -5,7 +5,7 @@ appImg: 'ha-battery-notes.png'
 storeUrl: 'https://github.com/andrew-codechimp/HA-Battery-Notes'
 storeText: 'View on GitHub'
 installUrl: 'https://my.home-assistant.io/redirect/hacs_repository/?owner=andrew-codechimp&repository=HA-Battery-Notes&category=Integration'
-installText: 'Install via HACS'
+installText: 'Install'
 category: 'ha-integrations'
 order: 1
 ---
