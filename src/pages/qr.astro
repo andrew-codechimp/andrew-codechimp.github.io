@@ -1,0 +1,58 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import qrCode from '../assets/qr-code.png';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title="CodeChimp QR Code" description="Scan the QR code to visit codechimp.org." />
+	</head>
+	<body>
+		<main>
+			<img
+				src={qrCode.src}
+				width={qrCode.width}
+				height={qrCode.height}
+				alt="QR code linking to https://codechimp.org"
+			/>
+			<a href="https://codechimp.org">https://codechimp.org</a>
+		</main>
+	</body>
+</html>
+
+<style>
+	main {
+		box-sizing: border-box;
+		width: 100%;
+		max-width: none;
+		min-height: 100svh;
+		padding: 2rem 1rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: clamp(1rem, 3vh, 2rem);
+		text-align: center;
+	}
+
+	img {
+		display: block;
+		width: min(80vw, 65svh, 800px);
+		height: auto;
+		border-radius: 0;
+	}
+
+	a {
+		color: #000;
+		font-size: clamp(1.5rem, 5vw, 5rem);
+		font-weight: 700;
+		line-height: 1.2;
+		text-decoration: none;
+	}
+
+	a:hover {
+		color: #000;
+		text-decoration: underline;
+	}
+</style>
