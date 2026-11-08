@@ -7,7 +7,7 @@ storeText: 'View on GitHub'
 installUrl: 'https://my.home-assistant.io/redirect/hacs_repository/?owner=andrew-codechimp&repository=tsmart_ha&category=Integration'
 installText: 'Install'
 category: 'ha-integrations'
-order: 9
+order: 10
 ---
 
 Control & monitor your Tesla T-Smart and other EUROICC water heaters with Home Assistant.

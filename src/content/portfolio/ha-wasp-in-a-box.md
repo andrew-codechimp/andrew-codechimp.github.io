@@ -7,7 +7,7 @@ storeText: 'View on GitHub'
 installUrl: 'https://my.home-assistant.io/redirect/hacs_repository/?owner=andrew-codechimp&repository=HA-Wasp-In-A-Box&category=Integration'
 installText: 'Install'
 category: 'ha-integrations'
-order: 8
+order: 9
 ---
 
 An occupancy sensor helper to determine reliable occupancy for enclosed spaces while a person remains inside, even if out of range of the motion sensor or being still.
